@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Manage Complaints - Residency Issue Tracker
+</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+<div class="logo">
+🏠 Residency Issue Tracker
+</div>
+
+
+<nav>
+
+<a href="dashboard.html">
+Dashboard
+</a>
+
+<a href="complaints.html">
+Complaints
+</a>
+
+<a href="users.html">
+Users
+</a>
+
+<a href="reports.html">
+Reports
+</a>
+
+<a href="../login.html">
+Logout
+</a>
+
+</nav>
+
+</header>
+
+
+
+<main class="admin-complaints-container">
+
+
+<div class="admin-page-header">
+
+<div>
+
+<h1>
+Manage Complaints
+</h1>
+
+
+<p>
+View and manage all resident complaints.
+</p>
+
+</div>
+
+
+<div class="complaint-count">
+
+Total Complaints:
+
+<strong id="totalComplaintCount">
+0
+</strong>
+
+</div>
+
+
+</div>
+
+
+
+<section class="admin-filter-section">
+
+
+<div>
+
+<label>
+Search Complaint
+</label>
+
+
+<input 
+type="text"
+id="searchComplaint"
+placeholder="Search complaint..."
+>
+
+</div>
+
+
+
+<div>
+
+<label>
+Category
+</label>
+
+
+<select id="categoryFilter">
+
+<option value="all">
+All Categories
+</option>
+
+<option value="Water Leakage">
+Water Leakage
+</option>
+
+<option value="Electricity Failure">
+Electricity Failure
+</option>
+
+<option value="Wi-Fi Problem">
+Wi-Fi Problem
+</option>
+
+<option value="Cleaning Request">
+Cleaning
+</option>
+
+<option value="Security Complaint">
+Security
+</option>
+
+<option value="Maintenance Request">
+Maintenance
+</option>
+
+</select>
+
+</div>
+
+
+
+<div>
+
+<label>
+Status
+</label>
+
+
+<select id="statusFilter">
+
+<option value="all">
+All Status
+</option>
+
+<option value="Pending">
+Pending
+</option>
+
+<option value="In Progress">
+In Progress
+</option>
+
+<option value="Resolved">
+Resolved
+</option>
+
+</select>
+
+</div>
+
+
+</section>
+<!-- Complaints Table -->
+
+<section class="admin-complaints-card">
+
+
+<div class="table-container">
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>
+Complaint ID
+</th>
+
+
+<th>
+Resident Name
+</th>
+
+
+<th>
+Category
+</th>
+
+
+<th>
+Description
+</th>
+
+
+<th>
+Status
+</th>
+
+
+<th>
+Action
+</th>
+
+
+</tr>
+
+</thead>
+
+
+
+<tbody id="complaintsTableBody">
+
+<!-- Data From Backend Will Load Here -->
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+
+<div 
+id="noComplaintsMessage"
+style="display:none;text-align:center;padding:30px;"
+>
+
+
+<h3>
+No Complaints Found
+</h3>
+
+
+<p>
+There are no complaints available.
+</p>
+
+
+</div>
+
+
+
+</section>
+
+
+
+</main>
+
+
+
+<footer>
+
+<p>
+© 2026 Residency Issue Tracker. All Rights Reserved.
+</p>
+
+</footer>
+
+
+
+
+
+
+<script src="../js/admin_complaints.js"></script>
+<!-- JavaScript -->
+<script src="../js/admin_complaints.js"></script>
+
+
+
+</body>
+
+</html>

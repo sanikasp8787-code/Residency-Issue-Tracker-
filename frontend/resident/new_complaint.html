@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Report New Issue - Residency Issue Tracker
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🏠 Residency Issue Tracker
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="new_complaint.html">
+                New Complaint
+            </a>
+
+            <a href="my_complaints.html">
+                My Complaints
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="../login.html">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- New Complaint Section -->
+
+    <main class="complaint-container">
+
+
+        <div class="complaint-card">
+
+
+            <!-- Header -->
+
+            <div class="complaint-header">
+
+                <h1>
+                    Report a New Issue
+                </h1>
+
+                <p>
+                    Please provide details about the issue you are facing.
+                </p>
+
+            </div>
+
+
+
+            <!-- Complaint Form -->
+
+            <form id="complaintForm">
+
+
+                <!-- Resident Name -->
+
+                <div class="form-group">
+
+                    <label for="residentName">
+                        Resident Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="residentName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Flat Number -->
+
+                <div class="form-group">
+
+                    <label for="flatNumber">
+                        Flat Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="flatNumber"
+                        placeholder="Enter your flat number"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Complaint Category -->
+
+                <div class="form-group">
+
+                    <label for="category">
+                        Complaint Category
+                    </label>
+
+                    <select
+                        id="category"
+                        required
+                    >
+
+                        <option value="">
+                            Select Complaint Category
+                        </option>
+
+                        <option value="Water Leakage">
+                            Water Leakage
+                        </option>
+
+                        <option value="Electricity Failure">
+                            Electricity Failure
+                        </option>
+
+                        <option value="Wi-Fi Problem">
+                            Wi-Fi Problem
+                        </option>
+
+                        <option value="Cleaning Request">
+                            Cleaning Request
+                        </option>
+
+                        <option value="Security Complaint">
+                            Security Complaint
+                        </option>
+
+                        <option value="Maintenance Request">
+                            Maintenance Request
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Description -->
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Issue Description
+                    </label>
+
+                    <textarea
+                        id="description"
+                        rows="6"
+                        placeholder="Describe your issue in detail..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- Image Upload -->
+
+                <div class="form-group">
+
+                    <label for="issueImage">
+                        Upload Issue Image
+                    </label>
+
+                    <input
+                        type="file"
+                        id="issueImage"
+                        accept="image/*"
+                    >
+
+                    <small>
+                        Upload an image related to your issue (optional).
+                    </small>
+
+                </div>
+
+
+
+                <!-- Priority -->
+
+                <div class="form-group">
+
+                    <label for="priority">
+                        Complaint Priority
+                    </label>
+
+                    <select
+                        id="priority"
+                        required
+                    >
+
+                        <option value="">
+                            Select Priority
+                        </option>
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                        <option value="Medium">
+                            Medium
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                        <option value="Emergency">
+                            Emergency
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Buttons -->
+
+                <div class="complaint-buttons">
+
+
+                    <a
+                        href="dashboard.html"
+                        class="secondary-button"
+                    >
+                        Cancel
+                    </a>
+
+
+                    <button
+                        type="submit"
+                        class="auth-button"
+                    >
+                        Submit Complaint
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Residency Issue Tracker.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="../js/resident.js"></script>
+
+</body>
+
+</html>

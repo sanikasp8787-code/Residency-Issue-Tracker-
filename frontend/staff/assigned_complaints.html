@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        My Assigned Complaints - Residency Issue Tracker
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🏠 Residency Issue Tracker
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="assigned_complaints.html">
+                My Complaints
+            </a>
+
+            <a href="work_history.html">
+                Work History
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="../login.html">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- Main Content -->
+
+    <main class="assigned-container">
+
+
+        <!-- Header -->
+
+        <div class="assigned-header">
+
+            <div>
+
+                <h1>
+                    My Assigned Complaints
+                </h1>
+
+                <p>
+                    View and manage complaints assigned to you.
+                </p>
+
+            </div>
+
+
+            <div class="assigned-count">
+
+                Assigned:
+                <strong id="assignedCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Filters -->
+
+        <section class="staff-filter-section">
+
+
+            <!-- Search -->
+
+            <div>
+
+                <label for="searchComplaint">
+                    Search Complaint
+                </label>
+
+                <input
+                    type="text"
+                    id="searchComplaint"
+                    placeholder="Search by ID or resident name..."
+                >
+
+            </div>
+
+
+
+            <!-- Priority -->
+
+            <div>
+
+                <label for="priorityFilter">
+                    Priority
+                </label>
+
+                <select id="priorityFilter">
+
+                    <option value="all">
+                        All Priorities
+                    </option>
+
+                    <option value="low">
+                        Low
+                    </option>
+
+                    <option value="medium">
+                        Medium
+                    </option>
+
+                    <option value="high">
+                        High
+                    </option>
+
+                    <option value="emergency">
+                        Emergency
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- Status -->
+
+            <div>
+
+                <label for="statusFilter">
+                    Status
+                </label>
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="open">
+                        Open
+                    </option>
+
+                    <option value="assigned">
+                        Assigned
+                    </option>
+
+                    <option value="in progress">
+                        In Progress
+                    </option>
+
+                    <option value="completed">
+                        Completed
+                    </option>
+
+                    <option value="closed">
+                        Closed
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Complaints Table -->
+
+        <section class="assigned-card">
+
+
+            <div class="table-container">
+
+
+                <table id="assignedTable">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Complaint ID
+                            </th>
+
+                            <th>
+                                Resident
+                            </th>
+
+                            <th>
+                                Flat No.
+                            </th>
+
+                            <th>
+                                Category
+                            </th>
+
+                            <th>
+                                Priority
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Update
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+
+                    <tbody id="assignedTableBody">
+
+                        <!-- Complaints will load here -->
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+
+            <!-- No Complaints -->
+
+            <div
+                id="noComplaints"
+                style="display: none; text-align: center; padding: 30px;"
+            >
+
+                <h3>
+                    No Assigned Complaints
+                </h3>
+
+                <p>
+                    There are currently no complaints assigned to you.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Residency Issue Tracker.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+    <!-- JavaScript -->
+
+    <script src="../js/staff.js"></script>
+
+</body>
+
+</html>

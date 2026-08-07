@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile - Residency Issue Tracker</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            🏠 Residency Issue Tracker
+        </div>
+
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="new_complaint.html">New Complaint</a>
+            <a href="my_complaints.html">My Complaints</a>
+            <a href="profile.html">Profile</a>
+            <a href="../login.html">Logout</a>
+        </nav>
+
+    </header>
+
+
+    <main class="profile-container">
+
+        <div class="profile-header">
+
+            <div>
+                <h1>My Profile</h1>
+
+                <p>
+                    View and manage your personal information.
+                </p>
+            </div>
+
+        </div>
+
+
+        <section class="profile-card">
+
+            <div class="profile-top">
+
+                <div class="profile-avatar">
+                    👤
+                </div>
+
+                <div>
+                    <h2 id="profileName">Resident Name</h2>
+                    <p>Resident</p> 
+                </div>
+
+            </div>
+
+
+            <form id="profileForm">
+
+                <div class="profile-grid">
+
+                    <div class="form-group">
+
+                        <label for="fullName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            value="+91 9876543210"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="flatNumber">
+                            Flat Number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="flatNumber"
+                            placeholder="Enter your flat number"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full-width">
+
+                        <label for="address">
+                            Address
+                        </label>
+
+                        <textarea
+                            id="address"
+                            rows="4"
+                            placeholder="Enter your address"
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-buttons">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="cancelButton"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="auth-button"
+                    >
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- Change Password -->
+
+        <section class="profile-card">
+
+            <h2>Change Password</h2>
+
+            <p class="profile-description">
+                Update your account password regularly to keep your account secure.
+            </p>
+
+
+            <form id="passwordForm">
+
+                <div class="profile-grid">
+
+                    <div class="form-group">
+
+                        <label for="currentPassword">
+                            Current Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="currentPassword"
+                            placeholder="Enter current password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="newPassword">
+                            New Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="newPassword"
+                            placeholder="Enter new password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="confirmNewPassword">
+                            Confirm New Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="confirmNewPassword"
+                            placeholder="Confirm new password"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-buttons">
+
+                    <button
+                        type="submit"
+                        class="auth-button"
+                    >
+                        Update Password
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            © 2026 Residency Issue Tracker.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    let name = localStorage.getItem("name");
+    let email = localStorage.getItem("email");
+
+    if(name){
+        document.getElementById("profileName").innerText = name;
+        document.getElementById("fullName").value = name;
+    }
+
+    if(email){
+        document.getElementById("email").value = email;
+    }
+
+
+    document.getElementById("profileForm")
+    .addEventListener("submit", function(e){
+
+        e.preventDefault();
+
+        localStorage.setItem(
+            "name",
+            document.getElementById("fullName").value
+        );
+
+        alert("Profile Updated Successfully");
+
+    });
+
+
+    document.getElementById("passwordForm")
+    .addEventListener("submit", function(e){
+
+        e.preventDefault();
+
+        let pass1 =
+        document.getElementById("newPassword").value;
+
+        let pass2 =
+        document.getElementById("confirmNewPassword").value;
+
+
+        if(pass1 !== pass2){
+
+            alert("Password not matching");
+
+            return;
+
+        }
+
+        alert("Password Updated Successfully");
+
+    });
+
+
+});
+
+</script>
+<script src="../js/resident.js"></script>
+
+</body>
+</html>

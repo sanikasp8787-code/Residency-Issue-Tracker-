@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Emergency SOS</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+
+body{
+    background:#f5f7fb;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+.emergency-container{
+    max-width:700px;
+    margin:40px auto;
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.emergency-container h1{
+    color:#d32f2f;
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.emergency-container p{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:10px;
+    margin-top:6px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+textarea{
+    resize:none;
+}
+
+.sos-btn{
+    width:100%;
+    margin-top:25px;
+    padding:15px;
+    border:none;
+    border-radius:8px;
+    background:red;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.sos-btn:hover{
+    background:#b30000;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="emergency-container">
+
+<h1>🚨 Emergency SOS</h1>
+
+<p>Use this only for emergency situations.</p>
+
+<label>Name</label>
+<input type="text" id="residentName">
+
+<label>Flat Number</label>
+<input type="text" id="flatNumber">
+
+<label>Emergency Type</label>
+
+<select id="emergencyType">
+
+<option>Medical</option>
+
+<option>Fire</option>
+
+<option>Security</option>
+
+<option>Water Leakage</option>
+
+<option>Electric Short Circuit</option>
+
+<option>Other</option>
+
+</select>
+
+<label>Description</label>
+
+<textarea id="description" rows="5"></textarea>
+
+<button class="sos-btn" onclick="sendSOS()">
+
+🚨 SEND SOS
+
+</button>
+
+</div>
+
+<script>
+
+function sendSOS(){
+
+const residentName=document.getElementById("residentName").value.trim();
+
+const flatNumber=document.getElementById("flatNumber").value.trim();
+
+const emergencyType=document.getElementById("emergencyType").value;
+
+const description=document.getElementById("description").value.trim();
+
+if(
+residentName==""||
+flatNumber==""||
+description==""
+){
+
+alert("Please fill all fields.");
+
+return;
+
+}
+
+let emergencyList=
+
+JSON.parse(localStorage.getItem("emergencyList"))||[];
+
+const emergency={
+
+id:"SOS"+Date.now(),
+
+residentName,
+
+flatNumber,
+
+emergencyType,
+
+description,
+
+status:"Pending",
+
+date:new Date().toLocaleString()
+
+};
+
+emergencyList.push(emergency);
+
+localStorage.setItem(
+
+"emergencyList",
+
+JSON.stringify(emergencyList)
+
+);
+
+alert("🚨 Emergency request sent successfully.");
+
+document.getElementById("residentName").value="";
+
+document.getElementById("flatNumber").value="";
+
+document.getElementById("description").value="";
+
+}
+
+</script>
+
+</body>
+</html>

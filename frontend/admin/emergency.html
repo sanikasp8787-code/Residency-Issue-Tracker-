@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Emergency Requests</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f7fb;
+}
+
+.container{
+    width:95%;
+    margin:30px auto;
+}
+
+h1{
+    color:#d32f2f;
+    margin-bottom:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+
+th{
+    background:#d32f2f;
+    color:white;
+}
+
+select{
+    padding:6px;
+}
+
+button{
+    padding:8px 14px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.deleteBtn{
+    background:red;
+    color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🚨 Emergency Requests</h1>
+
+<h3>
+Total Requests :
+<span id="count">0</span>
+</h3>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+<th>Name</th>
+<th>Flat</th>
+<th>Emergency</th>
+<th>Description</th>
+<th>Date</th>
+<th>Status</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tableBody">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script>
+
+function loadEmergency(){
+
+let emergencyList=
+JSON.parse(localStorage.getItem("emergencyList"))||[];
+
+document.getElementById("count").textContent=
+emergencyList.length;
+
+const table=document.getElementById("tableBody");
+
+table.innerHTML="";
+
+emergencyList.forEach(function(item,index){
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${item.id}</td>
+
+<td>${item.residentName}</td>
+
+<td>${item.flatNumber}</td>
+
+<td>${item.emergencyType}</td>
+
+<td>${item.description}</td>
+
+<td>${item.date}</td>
+
+<td>
+
+<select onchange="changeStatus(${index},this.value)">
+
+<option value="Pending"
+${item.status=="Pending"?"selected":""}>
+
+Pending
+
+</option>
+
+<option value="Resolved"
+${item.status=="Resolved"?"selected":""}>
+
+Resolved
+
+</option>
+
+</select>
+
+</td>
+
+<td>
+
+<button
+class="deleteBtn"
+onclick="deleteEmergency(${index})">
+
+Delete
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+function changeStatus(index,status){
+
+let emergencyList=
+JSON.parse(localStorage.getItem("emergencyList"))||[];
+
+emergencyList[index].status=status;
+
+localStorage.setItem(
+"emergencyList",
+JSON.stringify(emergencyList)
+);
+
+alert("Status Updated");
+
+loadEmergency();
+
+}
+
+function deleteEmergency(index){
+
+if(confirm("Delete Emergency Request?")){
+
+let emergencyList=
+JSON.parse(localStorage.getItem("emergencyList"))||[];
+
+emergencyList.splice(index,1);
+
+localStorage.setItem(
+"emergencyList",
+JSON.stringify(emergencyList)
+);
+
+loadEmergency();
+
+}
+
+}
+
+loadEmergency();
+
+</script>
+
+</body>
+</html>
