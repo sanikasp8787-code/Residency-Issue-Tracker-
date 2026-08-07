@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Reports - Residency Issue Tracker</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🏠 Residency Issue Tracker
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="complaints.html">
+                Complaints
+            </a>
+
+            <a href="users.html">
+                Users
+            </a>
+
+            <a href="reports.html">
+                Reports
+            </a>
+
+            <a href="../login.html">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- Main Content -->
+
+    <main class="reports-container">
+
+
+        <div class="reports-header">
+
+            <div>
+
+                <h1>
+                    Reports & Analytics
+                </h1>
+
+                <p>
+                    Analyze residency complaints and system performance.
+                </p>
+
+            </div>
+
+
+            <button
+                class="primary-button"
+                onclick="printReport()"
+            >
+                🖨️ Print Report
+            </button>
+
+        </div>
+
+
+
+        <!-- Summary Cards -->
+
+        <section class="report-stats">
+
+
+            <div class="report-stat-card">
+
+                <span>
+                    📋
+                </span>
+
+                <div>
+
+                    <h3>
+                        125
+                    </h3>
+
+                    <p>
+                        Total Complaints
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="report-stat-card">
+
+                <span>
+                    ✅
+                </span>
+
+                <div>
+
+                    <h3>
+                        63
+                    </h3>
+
+                    <p>
+                        Resolved Complaints
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="report-stat-card">
+
+                <span>
+                    ⏳
+                </span>
+
+                <div>
+
+                    <h3>
+                        62
+                    </h3>
+
+                    <p>
+                        Pending Complaints
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="report-stat-card">
+
+                <span>
+                    ⭐
+                </span>
+
+                <div>
+
+                    <h3>
+                        4.6 / 5
+                    </h3>
+
+                    <p>
+                        Average Rating
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Complaint Status -->
+
+        <section class="report-grid">
+
+
+            <div class="report-card">
+
+                <h2>
+                    Complaint Status
+                </h2>
+
+
+                <div class="progress-item">
+
+                    <div class="progress-label">
+
+                        <span>
+                            Open
+                        </span>
+
+                        <strong>
+                            24
+                        </strong>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress-fill open-progress"
+                            style="width: 19%"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="progress-item">
+
+                    <div class="progress-label">
+
+                        <span>
+                            In Progress
+                        </span>
+
+                        <strong>
+                            38
+                        </strong>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress-fill progress-progress"
+                            style="width: 30%"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="progress-item">
+
+                    <div class="progress-label">
+
+                        <span>
+                            Completed
+                        </span>
+
+                        <strong>
+                            63
+                        </strong>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress-fill completed-progress"
+                            style="width: 50%"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+
+            <!-- Priority -->
+
+            <div class="report-card">
+
+                <h2>
+                    Priority Summary
+                </h2>
+
+
+                <div class="priority-report">
+
+                    <div>
+
+                        <span class="priority low">
+                            Low
+                        </span>
+
+                        <strong>
+                            35
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="priority medium">
+                            Medium
+                        </span>
+
+                        <strong>
+                            50
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="priority high">
+                            High
+                        </span>
+
+                        <strong>
+                            35
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="priority emergency">
+                            Emergency
+                        </span>
+
+                        <strong>
+                            5
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Category Report -->
+
+        <section class="report-card category-report">
+
+            <h2>
+                Category-wise Complaints
+            </h2>
+
+
+            <div class="category-list">
+
+
+                <div class="category-item">
+
+                    <span>
+                        💧 Water Leakage
+                    </span>
+
+                    <strong>
+                        30
+                    </strong>
+
+                </div>
+
+
+                <div class="category-item">
+
+                    <span>
+                        ⚡ Electricity
+                    </span>
+
+                    <strong>
+                        25
+                    </strong>
+
+                </div>
+
+
+                <div class="category-item">
+
+                    <span>
+                        🧹 Cleaning
+                    </span>
+
+                    <strong>
+                        20
+                    </strong>
+
+                </div>
+
+
+                <div class="category-item">
+
+                    <span>
+                        🛠️ Maintenance
+                    </span>
+
+                    <strong>
+                        18
+                    </strong>
+
+                </div>
+
+
+                <div class="category-item">
+
+                    <span>
+                        🛡️ Security
+                    </span>
+
+                    <strong>
+                        17
+                    </strong>
+
+                </div>
+
+
+                <div class="category-item">
+
+                    <span>
+                        📶 Wi-Fi
+                    </span>
+
+                    <strong>
+                        15
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Monthly Report -->
+
+        <section class="report-card">
+
+
+            <div class="report-card-header">
+
+                <h2>
+                    Monthly Complaint Summary
+                </h2>
+
+
+                <select id="yearFilter">
+
+                    <option>
+                        2026
+                    </option>
+
+                    <option>
+                        2025
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Month
+                            </th>
+
+                            <th>
+                                Total
+                            </th>
+
+                            <th>
+                                Resolved
+                            </th>
+
+                            <th>
+                                Pending
+                            </th>
+
+                            <th>
+                                Resolution Rate
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                January
+                            </td>
+
+                            <td>
+                                18
+                            </td>
+
+                            <td>
+                                14
+                            </td>
+
+                            <td>
+                                4
+                            </td>
+
+                            <td>
+                                77.7%
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                February
+                            </td>
+
+                            <td>
+                                22
+                            </td>
+
+                            <td>
+                                17
+                            </td>
+
+                            <td>
+                                5
+                            </td>
+
+                            <td>
+                                77.2%
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                March
+                            </td>
+
+                            <td>
+                                20
+                            </td>
+
+                            <td>
+                                15
+                            </td>
+
+                            <td>
+                                5
+                            </td>
+
+                            <td>
+                                75%
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                April
+                            </td>
+
+                            <td>
+                                25
+                            </td>
+
+                            <td>
+                                19
+                            </td>
+
+                            <td>
+                                6
+                            </td>
+
+                            <td>
+                                76%
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                May
+                            </td>
+
+                            <td>
+                                20
+                            </td>
+
+                            <td>
+                                16
+                            </td>
+
+                            <td>
+                                4
+                            </td>
+
+                            <td>
+                                80%
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                June
+                            </td>
+
+                            <td>
+                                20
+                            </td>
+
+                            <td>
+                                17
+                            </td>
+
+                            <td>
+                                3
+                            </td>
+
+                            <td>
+                                85%
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Residency Issue Tracker.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <script>
+
+        function printReport() {
+
+            window.print();
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

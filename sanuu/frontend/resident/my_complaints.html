@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        My Complaints - Residency Issue Tracker
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🏠 Residency Issue Tracker
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="new_complaint.html">
+                New Complaint
+            </a>
+
+            <a href="my_complaints.html">
+                My Complaints
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="../login.html">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- Main Content -->
+
+    <main class="complaints-container">
+
+
+        <!-- Page Header -->
+
+        <div class="page-header">
+
+
+            <div>
+
+                <h1>
+                    My Complaints
+                </h1>
+
+                <p>
+                    View and track all your submitted complaints.
+                </p>
+
+            </div>
+
+
+            <a
+                href="new_complaint.html"
+                class="primary-button"
+            >
+                + New Complaint
+            </a>
+
+
+        </div>
+
+
+
+        <!-- Search and Filters -->
+
+        <section class="filter-section">
+
+
+            <!-- Search -->
+
+            <div class="search-box">
+
+                <label for="searchComplaint">
+                    Search Complaint
+                </label>
+
+                <input
+                    type="text"
+                    id="searchComplaint"
+                    placeholder="Search by Complaint ID..."
+                >
+
+            </div>
+
+
+
+            <!-- Category -->
+
+            <div class="filter-box">
+
+                <label for="categoryFilter">
+                    Category
+                </label>
+
+                <select id="categoryFilter">
+
+                    <option value="all">
+                        All Categories
+                    </option>
+
+                    <option value="water leakage">
+                        Water Leakage
+                    </option>
+
+                    <option value="electricity failure">
+                        Electricity Failure
+                    </option>
+
+                    <option value="wi-fi problem">
+                        Wi-Fi Problem
+                    </option>
+
+                    <option value="cleaning request">
+                        Cleaning
+                    </option>
+
+                    <option value="security complaint">
+                        Security
+                    </option>
+
+                    <option value="maintenance request">
+                        Maintenance
+                    </option>
+
+                    <option value="other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- Priority -->
+
+            <div class="filter-box">
+
+                <label for="priorityFilter">
+                    Priority
+                </label>
+
+                <select id="priorityFilter">
+
+                    <option value="all">
+                        All Priorities
+                    </option>
+
+                    <option value="low">
+                        Low
+                    </option>
+
+                    <option value="medium">
+                        Medium
+                    </option>
+
+                    <option value="high">
+                        High
+                    </option>
+
+                    <option value="emergency">
+                        Emergency
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- Status -->
+
+            <div class="filter-box">
+
+                <label for="statusFilter">
+                    Status
+                </label>
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="open">
+                        Open
+                    </option>
+
+                    <option value="assigned">
+                        Assigned
+                    </option>
+
+                    <option value="in progress">
+                        In Progress
+                    </option>
+
+                    <option value="completed">
+                        Completed
+                    </option>
+
+                    <option value="closed">
+                        Closed
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Complaints Table -->
+
+        <section class="complaints-table-card">
+
+
+            <div class="table-container">
+
+
+                <table id="complaintsTable">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Complaint ID
+                            </th>
+
+                            <th>
+                                Category
+                            </th>
+
+                            <th>
+                                Priority
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+
+                    <tbody id="complaintsTableBody">
+
+                        <!-- Complaints will load here -->
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+            <!-- No Complaints Message -->
+
+            <div
+                id="noComplaints"
+                style="display: none; text-align: center; padding: 30px;"
+            >
+
+                <h3>
+                    No Complaints Found
+                </h3>
+
+                <p>
+                    You have not submitted any complaint yet.
+                </p>
+
+                <br>
+
+                <a
+                    href="new_complaint.html"
+                    class="primary-button"
+                >
+                    + Submit New Complaint
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Residency Issue Tracker.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- JavaScript -->
+
+
+
+        <script src="../js/resident.js"></script>
+
+
+
+
+
+</body>
+
+</html>

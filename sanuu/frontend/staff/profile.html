@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Staff Profile - Residency Issue Tracker</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🏠 Residency Issue Tracker
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="assigned_complaints.html">
+                My Complaints
+            </a>
+
+            <a href="work-history.html">
+                Work History
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="../login.html">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- Main Content -->
+
+    <main class="staff-profile-container">
+
+
+        <!-- Page Header -->
+
+        <div class="profile-page-header">
+
+            <h1>
+                My Profile
+            </h1>
+
+            <p>
+                View and manage your staff account information.
+            </p>
+
+        </div>
+
+
+
+        <!-- Profile Layout -->
+
+        <section class="profile-layout">
+
+
+            <!-- Profile Card -->
+
+            <div class="profile-card">
+
+
+                <div class="profile-avatar">
+                    👨‍🔧
+                </div>
+
+
+                <h2 id="profileDisplayName">
+                    Amit Joshi
+                </h2>
+
+
+                <p class="profile-role">
+                    Staff Member
+                </p>
+
+
+                <span class="profile-status">
+                    ● Active
+                </span>
+
+
+                <div class="profile-divider"></div>
+
+
+                <p class="profile-id">
+                    Staff ID:
+                    <span id="profileDisplayId">
+                        STF001
+                    </span>
+                </p>
+
+
+            </div>
+
+
+
+            <!-- Profile Details -->
+
+            <div class="profile-details-card">
+
+
+                <div class="profile-card-header">
+
+                    <div>
+
+                        <h2>
+                            Personal Information
+                        </h2>
+
+                        <p>
+                            Update your personal details.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="profile-edit-button"
+                        onclick="enableEdit()"
+                    >
+                        ✏️ Edit Profile
+                    </button>
+
+                </div>
+
+
+
+                <!-- Profile Form -->
+
+                <form
+                    id="profileForm"
+                    onsubmit="saveProfile(event)"
+                >
+
+
+                    <div class="profile-form-grid">
+
+
+                        <!-- Full Name -->
+
+                        <div class="profile-form-group">
+
+                            <label for="fullName">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                disabled
+                            >
+
+                        </div>
+
+
+
+                        <!-- Email -->
+
+                        <div class="profile-form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                disabled
+                            >
+
+                        </div>
+
+
+
+                        <!-- Phone -->
+
+                        <div class="profile-form-group">
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                disabled
+                            >
+
+                        </div>
+
+
+
+                        <!-- Department -->
+
+                        <div class="profile-form-group">
+
+                            <label for="department">
+                                Department
+                            </label>
+
+                            <input
+                                type="text"
+                                id="department"
+                                disabled
+                            >
+
+                        </div>
+
+
+
+                        <!-- Staff ID -->
+
+                        <div class="profile-form-group">
+
+                            <label for="staffId">
+                                Staff ID
+                            </label>
+
+                            <input
+                                type="text"
+                                id="staffId"
+                                disabled
+                            >
+
+                        </div>
+
+
+
+                        <!-- Joining Date -->
+
+                        <div class="profile-form-group">
+
+                            <label for="joiningDate">
+                                Joining Date
+                            </label>
+
+                            <input
+                                type="text"
+                                id="joiningDate"
+                                disabled
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- Buttons -->
+
+                    <div
+                        class="profile-form-actions"
+                        id="profileActions"
+                    >
+
+                        <button
+                            type="submit"
+                            class="save-profile-button"
+                        >
+                            Save Changes
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="cancel-profile-button"
+                            onclick="cancelEdit()"
+                        >
+                            Cancel
+                        </button>
+
+                    </div>
+
+
+                </form>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Change Password -->
+
+        <section class="change-password-card">
+
+
+            <div>
+
+                <h2>
+                    🔑 Change Password
+                </h2>
+
+                <p>
+                    Keep your account secure by updating your password regularly.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="change-password-button"
+                onclick="changePassword()"
+            >
+                Change Password
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Residency Issue Tracker.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+
+        // Default Staff Profile
+
+        const defaultProfile = {
+
+            fullName: "Amit Joshi",
+
+            email: "amit@example.com",
+
+            phone: "+91 9876543212",
+
+            department: "Maintenance",
+
+            staffId: "STF001",
+
+            joiningDate: "10 January 2026"
+
+        };
+
+
+
+        // Editable Fields
+
+        const editableFields = [
+
+            "fullName",
+
+            "email",
+
+            "phone",
+
+            "department"
+
+        ];
+
+
+
+        // Load Profile
+
+        function loadProfile() {
+
+
+            const savedProfile =
+                JSON.parse(
+                    localStorage.getItem(
+                        "staffProfile"
+                    )
+                ) || defaultProfile;
+
+
+
+            // Set Form Values
+
+            document
+                .getElementById(
+                    "fullName"
+                )
+                .value =
+                    savedProfile.fullName;
+
+
+
+            document
+                .getElementById(
+                    "email"
+                )
+                .value =
+                    savedProfile.email;
+
+
+
+            document
+                .getElementById(
+                    "phone"
+                )
+                .value =
+                    savedProfile.phone;
+
+
+
+            document
+                .getElementById(
+                    "department"
+                )
+                .value =
+                    savedProfile.department;
+
+
+
+            document
+                .getElementById(
+                    "staffId"
+                )
+                .value =
+                    savedProfile.staffId;
+
+
+
+            document
+                .getElementById(
+                    "joiningDate"
+                )
+                .value =
+                    savedProfile.joiningDate;
+
+
+
+            // Profile Card Name
+
+            document
+                .getElementById(
+                    "profileDisplayName"
+                )
+                .textContent =
+                    savedProfile.fullName;
+
+
+
+            // Profile Card ID
+
+            document
+                .getElementById(
+                    "profileDisplayId"
+                )
+                .textContent =
+                    savedProfile.staffId;
+
+
+        }
+
+
+
+        // Enable Edit
+
+        function enableEdit() {
+
+
+            editableFields.forEach(
+                function(fieldId) {
+
+                    document
+                        .getElementById(
+                            fieldId
+                        )
+                        .disabled = false;
+
+                }
+            );
+
+
+
+            document
+                .getElementById(
+                    "profileActions"
+                )
+                .style.display =
+                    "flex";
+
+
+        }
+
+
+
+        // Cancel Edit
+
+        function cancelEdit() {
+
+
+            // Reload Saved Data
+
+            loadProfile();
+
+
+
+            // Disable Fields
+
+            editableFields.forEach(
+                function(fieldId) {
+
+                    document
+                        .getElementById(
+                            fieldId
+                        )
+                        .disabled = true;
+
+                }
+            );
+
+
+
+            // Hide Buttons
+
+            document
+                .getElementById(
+                    "profileActions"
+                )
+                .style.display =
+                    "none";
+
+
+        }
+
+
+
+        // Save Profile
+
+        function saveProfile(event) {
+
+
+            event.preventDefault();
+
+
+
+            // Get Existing Profile
+
+            const existingProfile =
+                JSON.parse(
+                    localStorage.getItem(
+                        "staffProfile"
+                    )
+                ) || defaultProfile;
+
+
+
+            // Create Updated Profile
+
+            const updatedProfile = {
+
+                fullName:
+                    document
+                        .getElementById(
+                            "fullName"
+                        )
+                        .value
+                        .trim(),
+
+                email:
+                    document
+                        .getElementById(
+                            "email"
+                        )
+                        .value
+                        .trim(),
+
+                phone:
+                    document
+                        .getElementById(
+                            "phone"
+                        )
+                        .value
+                        .trim(),
+
+                department:
+                    document
+                        .getElementById(
+                            "department"
+                        )
+                        .value
+                        .trim(),
+
+                staffId:
+                    existingProfile.staffId,
+
+                joiningDate:
+                    existingProfile.joiningDate
+
+            };
+
+
+
+            // Save to LocalStorage
+
+            localStorage.setItem(
+
+                "staffProfile",
+
+                JSON.stringify(
+                    updatedProfile
+                )
+
+            );
+
+
+
+            // Update Profile Card
+
+            document
+                .getElementById(
+                    "profileDisplayName"
+                )
+                .textContent =
+                    updatedProfile.fullName;
+
+
+
+            document
+                .getElementById(
+                    "profileDisplayId"
+                )
+                .textContent =
+                    updatedProfile.staffId;
+
+
+
+            alert(
+                "Profile updated successfully!"
+            );
+
+
+
+            // Disable Edit
+
+            editableFields.forEach(
+                function(fieldId) {
+
+                    document
+                        .getElementById(
+                            fieldId
+                        )
+                        .disabled = true;
+
+                }
+            );
+
+
+
+            document
+                .getElementById(
+                    "profileActions"
+                )
+                .style.display =
+                    "none";
+
+
+        }
+
+
+
+        // Change Password
+
+        function changePassword() {
+
+
+            const newPassword =
+                prompt(
+                    "Enter your new password:"
+                );
+
+
+
+            if (
+                newPassword !== null &&
+                newPassword.trim() !== ""
+            ) {
+
+
+                localStorage.setItem(
+
+                    "staffPassword",
+
+                    newPassword
+
+                );
+
+
+
+                alert(
+                    "Password updated successfully!"
+                );
+
+
+            }
+
+
+        }
+
+
+
+        // Load Profile on Page Load
+
+        loadProfile();
+
+
+    </script>
+
+
+</body>
+
+</html>

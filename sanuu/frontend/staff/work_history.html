@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Work History - Residency Issue Tracker</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🏠 Residency Issue Tracker
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="assigned_complaints.html">
+                My Complaints
+            </a>
+
+            <a href="work_history.html">
+                Work History
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="../login.html">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- Main Content -->
+
+    <main class="work-history-container">
+
+
+        <!-- Header -->
+
+        <div class="work-history-header">
+
+            <div>
+
+                <h1>
+                    Work History
+                </h1>
+
+                <p>
+                    View your previously completed complaints.
+                </p>
+
+            </div>
+
+
+            <div class="completed-count">
+
+                Completed:
+
+                <strong id="completedCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Summary -->
+
+        <section class="history-stats">
+
+
+            <!-- Total Assigned -->
+
+            <div class="history-stat-card">
+
+                <span>
+                    📋
+                </span>
+
+                <div>
+
+                    <h3 id="totalAssigned">
+                        0
+                    </h3>
+
+                    <p>
+                        Total Assigned
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Completed -->
+
+            <div class="history-stat-card">
+
+                <span>
+                    ✅
+                </span>
+
+                <div>
+
+                    <h3 id="totalCompleted">
+                        0
+                    </h3>
+
+                    <p>
+                        Completed
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Average Resolution -->
+
+            <div class="history-stat-card">
+
+                <span>
+                    ⏱️
+                </span>
+
+                <div>
+
+                    <h3 id="averageResolution">
+                        0 Days
+                    </h3>
+
+                    <p>
+                        Avg. Resolution Time
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Average Rating -->
+
+            <div class="history-stat-card">
+
+                <span>
+                    ⭐
+                </span>
+
+                <div>
+
+                    <h3 id="averageRating">
+                        0 / 5
+                    </h3>
+
+                    <p>
+                        Average Rating
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Filters -->
+
+        <section class="history-filter-section">
+
+
+            <!-- Search -->
+
+            <div>
+
+                <label for="historySearch">
+                    Search
+                </label>
+
+                <input
+                    type="text"
+                    id="historySearch"
+                    placeholder="Search complaint ID or resident..."
+                >
+
+            </div>
+
+
+
+            <!-- Category -->
+
+            <div>
+
+                <label for="categoryFilter">
+                    Category
+                </label>
+
+                <select id="categoryFilter">
+
+                    <option value="all">
+                        All Categories
+                    </option>
+
+                    <option value="water">
+                        Water Leakage
+                    </option>
+
+                    <option value="electricity">
+                        Electricity
+                    </option>
+
+                    <option value="wifi">
+                        Wi-Fi
+                    </option>
+
+                    <option value="maintenance">
+                        Maintenance
+                    </option>
+
+                    <option value="security">
+                        Security
+                    </option>
+
+                    <option value="cleaning">
+                        Cleaning
+                    </option>
+
+                    <option value="other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- Month -->
+
+            <div>
+
+                <label for="monthFilter">
+                    Month
+                </label>
+
+                <select id="monthFilter">
+
+                    <option value="all">
+                        All Months
+                    </option>
+
+                    <option value="january">
+                        January
+                    </option>
+
+                    <option value="february">
+                        February
+                    </option>
+
+                    <option value="march">
+                        March
+                    </option>
+
+                    <option value="april">
+                        April
+                    </option>
+
+                    <option value="may">
+                        May
+                    </option>
+
+                    <option value="june">
+                        June
+                    </option>
+
+                    <option value="july">
+                        July
+                    </option>
+
+                    <option value="august">
+                        August
+                    </option>
+
+                    <option value="september">
+                        September
+                    </option>
+
+                    <option value="october">
+                        October
+                    </option>
+
+                    <option value="november">
+                        November
+                    </option>
+
+                    <option value="december">
+                        December
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Work History Table -->
+
+        <section class="work-history-card">
+
+
+            <div class="table-container">
+
+
+                <table id="historyTable">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Complaint ID
+                            </th>
+
+                            <th>
+                                Resident
+                            </th>
+
+                            <th>
+                                Flat No.
+                            </th>
+
+                            <th>
+                                Category
+                            </th>
+
+                            <th>
+                                Assigned Date
+                            </th>
+
+                            <th>
+                                Completed Date
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+
+                    <tbody id="historyTableBody">
+
+                        <!-- Completed complaints will appear here -->
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+
+            <!-- No History -->
+
+            <div
+                id="noHistory"
+                style="display: none; text-align: center; padding: 30px;"
+            >
+
+                <h3>
+                    No Completed Complaints
+                </h3>
+
+                <p>
+                    No completed complaints are available in your work history.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Residency Issue Tracker.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+
+        // Get Elements
+
+        const searchInput =
+            document.getElementById(
+                "historySearch"
+            );
+
+
+        const categoryFilter =
+            document.getElementById(
+                "categoryFilter"
+            );
+
+
+        const monthFilter =
+            document.getElementById(
+                "monthFilter"
+            );
+
+
+        const historyTableBody =
+            document.getElementById(
+                "historyTableBody"
+            );
+
+
+        const noHistory =
+            document.getElementById(
+                "noHistory"
+            );
+
+
+
+        // Load Work History
+
+        function loadWorkHistory() {
+
+
+            // Get All Complaints
+
+            const complaints =
+                JSON.parse(
+                    localStorage.getItem(
+                        "complaints"
+                    )
+                ) || [];
+
+
+
+            // Total Assigned
+
+            document
+                .getElementById(
+                    "totalAssigned"
+                )
+                .textContent =
+                    complaints.length;
+
+
+
+            // Get Completed Complaints
+
+            const completedComplaints =
+                complaints.filter(
+                    function(complaint) {
+
+                        return complaint.status
+                            .toLowerCase()
+                            .trim() ===
+                            "completed";
+
+                    }
+                );
+
+
+
+            // Completed Count
+
+            document
+                .getElementById(
+                    "completedCount"
+                )
+                .textContent =
+                    completedComplaints.length;
+
+
+
+            document
+                .getElementById(
+                    "totalCompleted"
+                )
+                .textContent =
+                    completedComplaints.length;
+
+
+
+            // Clear Table
+
+            historyTableBody.innerHTML = "";
+
+
+
+            // No Completed Complaints
+
+            if (
+                completedComplaints.length === 0
+            ) {
+
+                noHistory.style.display =
+                    "block";
+
+                return;
+
+            }
+
+
+
+            noHistory.style.display =
+                "none";
+
+
+
+            // Create Rows
+
+            completedComplaints.forEach(
+                function(complaint) {
+
+
+                    const row =
+                        document.createElement(
+                            "tr"
+                        );
+
+
+
+                    // Completed Date
+
+                    const completedDate =
+                        complaint.completedDate
+                        ||
+                        complaint.updatedDate
+                        ||
+                        new Date()
+                            .toLocaleDateString(
+                                "en-IN"
+                            );
+
+
+
+                    row.innerHTML = `
+
+                        <td>
+                            ${complaint.complaintId}
+                        </td>
+
+                        <td>
+                            ${complaint.residentName}
+                        </td>
+
+                        <td>
+                            ${complaint.flatNumber}
+                        </td>
+
+                        <td>
+                            ${complaint.category}
+                        </td>
+
+                        <td>
+                            ${complaint.date}
+                        </td>
+
+                        <td>
+                            ${completedDate}
+                        </td>
+
+                        <td>
+
+                            <span class="status completed">
+                                Completed
+                            </span>
+
+                        </td>
+
+                    `;
+
+
+
+                    historyTableBody.appendChild(
+                        row
+                    );
+
+
+                }
+            );
+
+
+
+            // Calculate Average Rating
+
+            calculateAverageRating(
+                completedComplaints
+            );
+
+
+
+            // Calculate Resolution Time
+
+            calculateResolutionTime(
+                completedComplaints
+            );
+
+
+
+            // Apply Filters
+
+            filterHistory();
+
+
+        }
+
+
+
+        // Filter Work History
+
+        function filterHistory() {
+
+
+            const searchValue =
+                searchInput.value
+                    .toLowerCase()
+                    .trim();
+
+
+
+            const categoryValue =
+                categoryFilter.value
+                    .toLowerCase();
+
+
+
+            const monthValue =
+                monthFilter.value
+                    .toLowerCase();
+
+
+
+            const rows =
+                historyTableBody.querySelectorAll(
+                    "tr"
+                );
+
+
+
+            let visibleRows = 0;
+
+
+
+            rows.forEach(
+                function(row) {
+
+
+                    const complaintId =
+                        row.cells[0]
+                            .textContent
+                            .toLowerCase();
+
+
+
+                    const resident =
+                        row.cells[1]
+                            .textContent
+                            .toLowerCase();
+
+
+
+                    const category =
+                        row.cells[3]
+                            .textContent
+                            .toLowerCase();
+
+
+
+                    const assignedDate =
+                        row.cells[4]
+                            .textContent
+                            .toLowerCase();
+
+
+
+                    const completedDate =
+                        row.cells[5]
+                            .textContent
+                            .toLowerCase();
+
+
+
+                    // Search
+
+                    const matchesSearch =
+
+                        complaintId.includes(
+                            searchValue
+                        )
+
+                        ||
+
+                        resident.includes(
+                            searchValue
+                        );
+
+
+
+                    // Category
+
+                    const matchesCategory =
+
+                        categoryValue ===
+                            "all"
+
+                        ||
+
+                        category.includes(
+                            categoryValue
+                        );
+
+
+
+                    // Month
+
+                    const matchesMonth =
+
+                        monthValue ===
+                            "all"
+
+                        ||
+
+                        assignedDate.includes(
+                            monthValue
+                        )
+
+                        ||
+
+                        completedDate.includes(
+                            monthValue
+                        );
+
+
+
+                    // Show / Hide
+
+                    if (
+
+                        matchesSearch &&
+
+                        matchesCategory &&
+
+                        matchesMonth
+
+                    ) {
+
+
+                        row.style.display =
+                            "";
+
+                        visibleRows++;
+
+
+                    } else {
+
+
+                        row.style.display =
+                            "none";
+
+
+                    }
+
+
+                }
+            );
+
+
+
+            // No Matching Results
+
+            if (
+
+                visibleRows === 0 &&
+
+                rows.length > 0
+
+            ) {
+
+
+                noHistory.style.display =
+                    "block";
+
+
+                noHistory.querySelector(
+                    "h3"
+                ).textContent =
+                    "No Matching Complaints";
+
+
+                noHistory.querySelector(
+                    "p"
+                ).textContent =
+                    "Try changing your search or filter options.";
+
+
+            } else if (
+                rows.length > 0
+            ) {
+
+
+                noHistory.style.display =
+                    "none";
+
+
+            }
+
+
+        }
+
+
+
+        // Calculate Average Rating
+
+        function calculateAverageRating(
+            completedComplaints
+        ) {
+
+
+            const feedbackList =
+                JSON.parse(
+                    localStorage.getItem(
+                        "feedbackList"
+                    )
+                ) || [];
+
+
+
+            const completedIds =
+                completedComplaints.map(
+                    function(complaint) {
+
+                        return complaint.complaintId;
+
+                    }
+                );
+
+
+
+            const ratings =
+                feedbackList.filter(
+                    function(feedback) {
+
+                        return completedIds.includes(
+                            feedback.complaintId
+                        );
+
+                    }
+                );
+
+
+
+            if (
+                ratings.length === 0
+            ) {
+
+
+                document
+                    .getElementById(
+                        "averageRating"
+                    )
+                    .textContent =
+                        "0 / 5";
+
+
+                return;
+
+            }
+
+
+
+            let totalRating = 0;
+
+
+
+            ratings.forEach(
+                function(feedback) {
+
+                    totalRating +=
+                        Number(
+                            feedback.rating
+                        );
+
+                }
+            );
+
+
+
+            const average =
+                (
+                    totalRating /
+                    ratings.length
+                ).toFixed(1);
+
+
+
+            document
+                .getElementById(
+                    "averageRating"
+                )
+                .textContent =
+                    average +
+                    " / 5";
+
+
+        }
+
+
+
+        // Calculate Resolution Time
+
+        function calculateResolutionTime(
+            completedComplaints
+        ) {
+
+
+            // Currently using available dates
+
+            // Backend will later provide
+            // exact assigned and completed dates
+
+
+            if (
+                completedComplaints.length === 0
+            ) {
+
+
+                document
+                    .getElementById(
+                        "averageResolution"
+                    )
+                    .textContent =
+                        "0 Days";
+
+
+                return;
+
+            }
+
+
+
+            // Demo calculation
+
+            document
+                .getElementById(
+                    "averageResolution"
+                )
+                .textContent =
+                    "Calculated";
+
+
+        }
+
+
+
+        // Search Event
+
+        searchInput.addEventListener(
+            "input",
+            filterHistory
+        );
+
+
+
+        // Category Event
+
+        categoryFilter.addEventListener(
+            "change",
+            filterHistory
+        );
+
+
+
+        // Month Event
+
+        monthFilter.addEventListener(
+            "change",
+            filterHistory
+        );
+
+
+
+        // Load History
+
+        loadWorkHistory();
+
+
+    </script>
+
+
+</body>
+
+</html>

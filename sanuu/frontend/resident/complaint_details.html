@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Complaint Details - Residency Issue Tracker
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🏠 Residency Issue Tracker
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="new_complaint.html">
+                New Complaint
+            </a>
+
+            <a href="my_complaints.html">
+                My Complaints
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="../login.html">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- Main Content -->
+
+ <main class="details-container">
+
+    <!-- Page Header -->
+
+    <div class="details-header">
+
+        <div>
+
+            <h1>Complaint Details</h1>
+
+            <p>
+                View complete information and track your complaint status.
+            </p>
+
+        </div>
+
+        <a href="my_complaints.html"
+           class="secondary-button">
+
+            ← Back to Complaints
+
+        </a>
+
+    </div>
+
+
+    <!-- Complaint Information -->
+
+    <section class="details-card">
+
+        <div class="card-title">
+
+            <h2>Complaint Information</h2>
+
+            <span id="complaintStatus"
+                  class="status open">
+
+                Pending
+
+            </span>
+
+        </div>
+
+
+        <div class="details-grid">
+
+            <div class="detail-item">
+
+                <label>Complaint ID</label>
+
+                <p id="complaintId">-</p>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <label>Resident Name</label>
+
+                <p id="residentName">-</p>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <label>Email</label>
+
+                <p id="email">-</p>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <label>Category</label>
+
+                <p id="category">-</p>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <label>Status</label>
+
+                <p>
+
+                    <span id="status"
+                          class="status open">
+
+                        Pending
+
+                    </span>
+
+                </p>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <label>Priority</label>
+
+                <p>
+
+                    <span id="priority"
+                          class="priority medium">
+
+                        Medium
+
+                    </span>
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Description -->
+
+        <div class="description-section">
+
+            <label>Issue Description</label>
+
+            <p id="description">
+
+                -
+
+            </p>
+
+        </div>
+
+    </section>
+    <!-- Complaint Tracking -->
+
+<section class="details-card">
+
+    <h2>Complaint Tracking</h2>
+
+    <div id="trackingTimeline" class="tracking-timeline">
+
+        <div class="timeline-item completed-step">
+
+            <div class="timeline-icon">
+                ✓
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>Complaint Submitted</h3>
+
+                <p>
+                    Your complaint has been submitted successfully.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-icon">
+                2
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>Assigned</h3>
+
+                <p>
+                    Waiting for admin to assign staff.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-icon">
+                3
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>In Progress</h3>
+
+                <p>
+                    Complaint is under process.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-icon">
+                4
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>Resolved</h3>
+
+                <p>
+                    Complaint has been resolved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Feedback Section -->
+
+<section class="details-card feedback-card">
+
+    <h2>Feedback & Rating</h2>
+
+    <p>
+        Submit your feedback after the complaint is resolved.
+    </p>
+
+    <form id="feedbackForm">
+
+        <div class="form-group">
+
+            <label>Rating</label>
+
+            <select id="rating">
+
+                <option value="5">⭐⭐⭐⭐⭐</option>
+
+                <option value="4">⭐⭐⭐⭐</option>
+
+                <option value="3">⭐⭐⭐</option>
+
+                <option value="2">⭐⭐</option>
+
+                <option value="1">⭐</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Your Feedback</label>
+
+            <textarea
+                id="feedback"
+                rows="5"
+                placeholder="Write your feedback..."
+            ></textarea>
+
+        </div>
+
+        <button
+            type="submit"
+            class="auth-button"
+        >
+            Submit Feedback
+        </button>
+
+    </form>
+
+</section>
+<script>
+
+const BASE_URL = "http://127.0.0.1:8000";
+
+
+const issueId = localStorage.getItem("selectedIssueId");
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (issueId) {
+
+        loadComplaintDetails();
+
+    } else {
+
+        alert("No Complaint Selected");
+
+        window.location.href = "my_complaints.html";
+
+    }
+
+});
+
+
+// ==========================================
+// Load Complaint Details
+// ==========================================
+
+async function loadComplaintDetails() {
+
+    try {
+
+        const response = await fetch(`${BASE_URL}/issues/`);
+
+        const issues = await response.json();
+
+        const issue = issues.find(item => item.id == issueId);
+
+        if (!issue) {
+
+            alert("Complaint Not Found");
+
+            window.location.href = "my_complaints.html";
+
+            return;
+
+        }
+
+        document.getElementById("complaintId").innerText =
+            "CMP" + issue.id;
+
+        document.getElementById("residentName").innerText =
+            issue.name;
+
+        document.getElementById("email").innerText =
+            issue.email;
+
+        document.getElementById("category").innerText =
+            issue.issue_type;
+
+        document.getElementById("description").innerText =
+            issue.description;
+
+        document.getElementById("status").innerText =
+            issue.status;
+
+        document.getElementById("complaintStatus").innerText =
+            issue.status;
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert("Unable to connect to backend.");
+
+    }
+
+}
+
+
+// ==========================================
+// Feedback Submit
+// ==========================================
+
+document.getElementById("feedbackForm").addEventListener(
+    "submit",
+    async function (event) {
+
+        event.preventDefault();
+
+        const rating = document.getElementById("rating").value;
+        const feedback = document.getElementById("feedback").value;
+
+        if (feedback.trim() === "") {
+            alert("Please enter feedback.");
+            return;
+        }
+
+        try {const response = await fetch(
+                `${BASE_URL}/issues/${issueId}/feedback`,
+                {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        rating: parseInt(rating),
+                        feedback: feedback
+                    })
+                }
+            );
+
+            const data = await response.json();
+
+            if (response.ok) {
+
+                alert("Feedback Submitted Successfully");
+
+                document.getElementById("feedbackForm").reset();
+
+            } else {
+
+                alert(data.message);
+
+            }
+
+        } catch (error) {
+
+            console.log(error);
+
+            alert("Backend Connection Failed");
+
+        }
+
+    }
+);
+
+</script>

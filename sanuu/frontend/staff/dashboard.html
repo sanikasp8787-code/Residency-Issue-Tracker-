@@ -1,0 +1,943 @@
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Staff Dashboard - Residency Issue Tracker</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🏠 Residency Issue Tracker
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="assigned_complaints.html">
+                My Complaints
+            </a>
+
+            <a href="work-history.html">
+                Work History
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="../login.html">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- Main Content -->
+
+    <main class="staff-container">
+
+
+        <!-- Header -->
+
+        <div class="staff-header">
+
+            <div>
+
+                <h1>
+                    Welcome, Staff Member 👋
+                </h1>
+
+                <p>
+                    Manage your assigned complaints and update their status.
+                </p>
+
+            </div>
+
+
+            <span class="staff-badge">
+                👨‍🔧 Staff Member
+            </span>
+
+        </div>
+
+
+
+        <!-- Statistics -->
+
+        <section class="staff-stats">
+
+
+            <div class="staff-stat-card">
+
+                <div class="staff-stat-icon">
+                    📋
+                </div>
+
+                <div>
+
+                    <h3>
+                        25
+                    </h3>
+
+                    <p>
+                        Assigned Complaints
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="staff-stat-card">
+
+                <div class="staff-stat-icon">
+                    🔵
+                </div>
+
+                <div>
+
+                    <h3>
+                        8
+                    </h3>
+
+                    <p>
+                        Pending
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="staff-stat-card">
+
+                <div class="staff-stat-icon">
+                    🔄
+                </div>
+
+                <div>
+
+                    <h3>
+                        7
+                    </h3>
+
+                    <p>
+                        In Progress
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="staff-stat-card">
+
+                <div class="staff-stat-icon">
+                    ✅
+                </div>
+
+                <div>
+
+                    <h3>
+                        10
+                    </h3>
+
+                    <p>
+                        Completed
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="staff-stat-card emergency-staff-card">
+
+                <div class="staff-stat-icon">
+                    🚨
+                </div>
+
+                <div>
+
+                    <h3>
+                        3
+                    </h3>
+
+                    <p>
+                        High Priority
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Quick Actions -->
+
+        <section class="staff-actions">
+
+
+            <h2>
+                Quick Actions
+            </h2>
+
+
+            <div class="staff-action-grid">
+
+
+                <a
+                    href="assigned_complaints.html"
+                    class="staff-action-card"
+                >
+
+                    <span>
+                        📋
+                    </span>
+
+                    <h3>
+                        View Assigned Complaints
+                    </h3>
+
+                    <p>
+                        Check all complaints assigned to you.
+                    </p>
+
+                </a>
+
+
+
+                <a
+                    href="work-history.html"
+                    class="staff-action-card"
+                >
+
+                    <span>
+                        📊
+                    </span>
+
+                    <h3>
+                        Work History
+                    </h3>
+
+                    <p>
+                        View your completed complaint history.
+                    </p>
+
+                </a>
+
+
+
+                <a
+                    href="profile.html"
+                    class="staff-action-card"
+                >
+
+                    <span>
+                        👤
+                    </span>
+
+                    <h3>
+                        My Profile
+                    </h3>
+
+                    <p>
+                        View and manage your staff profile.
+                    </p>
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Recent Complaints -->
+
+        <section class="staff-recent">
+
+
+            <div class="staff-section-title">
+
+                <h2>
+                    Recent Assigned Complaints
+                </h2>
+
+
+                <a href="assigned_complaints.html">
+                    View All
+                </a>
+
+            </div>
+
+
+
+            <div class="table-container">
+
+
+                <table>
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Complaint ID
+                            </th>
+
+                            <th>
+                                Resident
+                            </th>
+
+                            <th>
+                                Category
+                            </th>
+
+                            <th>
+                                Priority
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+
+                    <tbody>
+
+
+                        <tr>
+
+                            <td>
+                                CMP1001
+                            </td>
+
+                            <td>
+                                Rahul Patil
+                            </td>
+
+                            <td>
+                                Water Leakage
+                            </td>
+
+                            <td>
+
+                                <span class="priority high">
+                                    High
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <span class="status progress">
+                                    In Progress
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <a
+                                    href="assigned_complaints.html"
+                                    class="staff-manage-button"
+                                >
+                                    Manage
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <tr>
+
+                            <td>
+                                CMP1004
+                            </td>
+
+                            <td>
+                                Sneha More
+                            </td>
+
+                            <td>
+                                Security
+                            </td>
+
+                            <td>
+
+                                <span class="priority high">
+                                    High
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <span class="status open">
+                                    Open
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <a
+                                    href="assigned_complaints.html"
+                                    class="staff-manage-button"
+                                >
+                                    Manage
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <tr>
+
+                            <td>
+                                CMP1007
+                            </td>
+
+                            <td>
+                                Neha Patil
+                            </td>
+
+                            <td>
+                                Maintenance
+                            </td>
+
+                            <td>
+
+                                <span class="priority medium">
+                                    Medium
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <span class="status open">
+                                    Open
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <a
+                                    href="assigned_complaints.html"
+                                    class="staff-manage-button"
+                                >
+                                    Manage
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Residency Issue Tracker.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Staff Dashboard - Residency Issue Tracker</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🏠 Residency Issue Tracker
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="assigned_complaints.html">
+                My Complaints
+            </a>
+
+            <a href="work_history.html">
+                Work History
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="../login.html">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- Main Content -->
+
+    <main class="staff-container">
+
+
+        <!-- Header -->
+
+        <div class="staff-header">
+
+            <div>
+
+                <h1>
+                    Welcome, Staff Member 👋
+                </h1>
+
+                <p>
+                    Manage your assigned complaints and update their status.
+                </p>
+
+            </div>
+
+
+            <span class="staff-badge">
+                👨‍🔧 Staff Member
+            </span>
+
+        </div>
+
+
+
+        <!-- Statistics -->
+
+        <section class="staff-stats">
+
+
+            <!-- Assigned -->
+
+            <div class="staff-stat-card">
+
+                <div class="staff-stat-icon">
+                    📋
+                </div>
+
+                <div>
+
+                    <h3 id="assignedCount">
+                        0
+                    </h3>
+
+                    <p>
+                        Assigned Complaints
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Pending -->
+
+            <div class="staff-stat-card">
+
+                <div class="staff-stat-icon">
+                    🔵
+                </div>
+
+                <div>
+
+                    <h3 id="pendingCount">
+                        0
+                    </h3>
+
+                    <p>
+                        Pending
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- In Progress -->
+
+            <div class="staff-stat-card">
+
+                <div class="staff-stat-icon">
+                    🔄
+                </div>
+
+                <div>
+
+                    <h3 id="progressCount">
+                        0
+                    </h3>
+
+                    <p>
+                        In Progress
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Completed -->
+
+            <div class="staff-stat-card">
+
+                <div class="staff-stat-icon">
+                    ✅
+                </div>
+
+                <div>
+
+                    <h3 id="completedCount">
+                        0
+                    </h3>
+
+                    <p>
+                        Completed
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- High Priority -->
+
+            <div class="staff-stat-card emergency-staff-card">
+
+                <div class="staff-stat-icon">
+                    🚨
+                </div>
+
+                <div>
+
+                    <h3 id="highPriorityCount">
+                        0
+                    </h3>
+
+                    <p>
+                        High Priority
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Quick Actions -->
+
+        <section class="staff-actions">
+
+
+            <h2>
+                Quick Actions
+            </h2>
+
+
+            <div class="staff-action-grid">
+
+
+                <!-- Assigned Complaints -->
+
+                <a
+                    href="assigned_complaints.html"
+                    class="staff-action-card"
+                >
+
+                    <span>
+                        📋
+                    </span>
+
+                    <h3>
+                        View Assigned Complaints
+                    </h3>
+
+                    <p>
+                        Check all complaints assigned to you.
+                    </p>
+
+                </a>
+
+
+
+                <!-- Work History -->
+
+                <a
+                    href="work_history.html"
+                    class="staff-action-card"
+                >
+
+                    <span>
+                        📊
+                    </span>
+
+                    <h3>
+                        Work History
+                    </h3>
+
+                    <p>
+                        View your completed complaint history.
+                    </p>
+
+                </a>
+
+
+
+                <!-- Profile -->
+
+                <a
+                    href="profile.html"
+                    class="staff-action-card"
+                >
+
+                    <span>
+                        👤
+                    </span>
+
+                    <h3>
+                        My Profile
+                    </h3>
+
+                    <p>
+                        View and manage your staff profile.
+                    </p>
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Recent Complaints -->
+
+        <section class="staff-recent">
+
+
+            <div class="staff-section-title">
+
+                <h2>
+                    Recent Assigned Complaints
+                </h2>
+
+
+                <a href="assigned_complaints.html">
+                    View All
+                </a>
+
+            </div>
+
+
+
+            <div class="table-container">
+
+
+                <table>
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Complaint ID
+                            </th>
+
+                            <th>
+                                Resident
+                            </th>
+
+                            <th>
+                                Category
+                            </th>
+
+                            <th>
+                                Priority
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+
+                    <tbody id="recentComplaintsBody">
+
+                        <!-- Recent complaints will appear here -->
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+            <!-- No Complaints -->
+
+            <div
+                id="noRecentComplaints"
+                style="display: none; text-align: center; padding: 30px;"
+            >
+
+                <h3>
+                    No Complaints Available
+                </h3>
+
+                <p>
+                    No complaints have been submitted yet.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Residency Issue Tracker.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="../js/staff.js"></script>
+
+</body>
+
+</html>

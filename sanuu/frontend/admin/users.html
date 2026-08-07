@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Manage Users - Residency Issue Tracker</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🏠 Residency Issue Tracker
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="complaints.html">
+                Complaints
+            </a>
+
+            <a href="users.html">
+                Users
+            </a>
+
+            <a href="reports.html">
+                Reports
+            </a>
+
+            <a href="../login.html">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- Main Content -->
+
+    <main class="users-container">
+
+
+        <!-- Page Header -->
+
+        <div class="users-page-header">
+
+            <div>
+
+                <h1>
+                    Manage Users
+                </h1>
+
+                <p>
+                    View and manage residents and staff members.
+                </p>
+
+            </div>
+
+
+            <button
+                class="primary-button"
+                onclick="addUser()"
+            >
+                + Add User
+            </button>
+
+        </div>
+
+
+
+        <!-- User Statistics -->
+
+        <section class="user-stats">
+
+
+            <!-- Total Residents -->
+
+            <div class="user-stat-card">
+
+                <div class="user-stat-icon">
+                    👥
+                </div>
+
+                <div>
+
+                    <h3 id="totalResidents">
+                        0
+                    </h3>
+
+                    <p>
+                        Total Residents
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Total Staff -->
+
+            <div class="user-stat-card">
+
+                <div class="user-stat-icon">
+                    👨‍🔧
+                </div>
+
+                <div>
+
+                    <h3 id="totalStaff">
+                        0
+                    </h3>
+
+                    <p>
+                        Total Staff
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Active Users -->
+
+            <div class="user-stat-card">
+
+                <div class="user-stat-icon">
+                    🟢
+                </div>
+
+                <div>
+
+                    <h3 id="activeUsers">
+                        0
+                    </h3>
+
+                    <p>
+                        Active Users
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Inactive Users -->
+
+            <div class="user-stat-card">
+
+                <div class="user-stat-icon">
+                    🔴
+                </div>
+
+                <div>
+
+                    <h3 id="inactiveUsers">
+                        0
+                    </h3>
+
+                    <p>
+                        Inactive Users
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Search and Filters -->
+
+        <section class="user-filter-section">
+
+
+            <!-- Search -->
+
+            <div>
+
+                <label for="userSearch">
+                    Search User
+                </label>
+
+                <input
+                    type="text"
+                    id="userSearch"
+                    placeholder="Search by name or email..."
+                >
+
+            </div>
+
+
+
+            <!-- Role Filter -->
+
+            <div>
+
+                <label for="roleFilter">
+                    Role
+                </label>
+
+                <select id="roleFilter">
+
+                    <option value="all">
+                        All Roles
+                    </option>
+
+                    <option value="resident">
+                        Resident
+                    </option>
+
+                    <option value="staff">
+                        Staff
+                    </option>
+
+                    <option value="admin">
+                        Admin
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- Status Filter -->
+
+            <div>
+
+                <label for="userStatusFilter">
+                    Status
+                </label>
+
+                <select id="userStatusFilter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="active">
+                        Active
+                    </option>
+
+                    <option value="inactive">
+                        Inactive
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Users Table -->
+
+        <section class="users-table-card">
+
+
+            <div class="table-container">
+
+
+                <table id="usersTable">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                User ID
+                            </th>
+
+                            <th>
+                                Name
+                            </th>
+
+                            <th>
+                                Email
+                            </th>
+
+                            <th>
+                                Phone
+                            </th>
+
+                            <th>
+                                Role
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+
+                    <tbody id="usersTableBody">
+
+                        <!-- Users will load here -->
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+
+            <!-- No Users -->
+
+            <div
+                id="noUsersMessage"
+                style="
+                    display: none;
+                    text-align: center;
+                    padding: 30px;
+                "
+            >
+
+                <h3>
+                    No Users Found
+                </h3>
+
+                <p>
+                    No users match your search or filters.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Residency Issue Tracker.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- JavaScript -->
+
+<script src="../js/admin_users.js"></script>
+
+
+</body>
+
+</html>
