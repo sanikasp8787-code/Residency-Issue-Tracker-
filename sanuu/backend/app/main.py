@@ -68,3 +68,20 @@ app.include_router(issue_router)
 app.include_router(category_router)
 
 app.include_router(feedback_router)
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+import os
+
+FRONTEND_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(_file_), "../../frontend")
+)
+
+app.mount(
+    "/static",
+    StaticFiles(directory=os.path.join(FRONTEND_DIR, "css")),
+    name="css"
+)
+
+@app.get("/")
+async def frontend():
+    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
