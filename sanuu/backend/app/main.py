@@ -66,9 +66,16 @@ from fastapi.staticfiles import StaticFiles
 import os
 
 FRONTEND_DIR = os.path.abspath(
-    os.path.join(os.path.dirname(__file__),
-                 "../../frontend")
+    os.path.join(
+        os.path.dirname(__file__),
+        "../../frontend"
+    )
 )
+
+app.mount(
+    "/",
+    StaticFiles(directory=FRONTEND_DIR, html=True),
+    name="frontend"
 )
 
 app.mount(
