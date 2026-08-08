@@ -48,12 +48,6 @@ app.add_middleware(
 # ===============================
 # Home Route
 # ===============================
-@app.get("/")
-def home():
-
-    return {
-        "message": "Welcome to Residency Issue Tracker API"
-    }
 
 
 
@@ -69,7 +63,6 @@ app.include_router(category_router)
 
 app.include_router(feedback_router)
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
 import os
 
 FRONTEND_DIR = os.path.abspath(
@@ -77,11 +70,6 @@ FRONTEND_DIR = os.path.abspath(
 )
 
 app.mount(
-    "/static",
-    StaticFiles(directory=os.path.join(FRONTEND_DIR, "css")),
-    name="css"
-)
-
-@app.get("/")
-async def frontend():
-    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
+    "/",
+    StaticFiles(directory=FRONTEND_DIR, html=True),
+    name="frontend"
