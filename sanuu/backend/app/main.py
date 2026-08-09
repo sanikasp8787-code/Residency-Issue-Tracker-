@@ -77,9 +77,3 @@ app.mount(
     StaticFiles(directory=FRONTEND_DIR, html=True),
     name="frontend"
 )
-
-app.mount(
-    "/",
-    StaticFiles(directory=FRONTEND_DIR, html=True),
-    name="frontend"
-)
